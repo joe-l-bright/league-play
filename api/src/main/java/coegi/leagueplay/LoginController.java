@@ -11,6 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView login() {
-        return new ModelAndView("login");
+        return new ModelAndView("logi");
     }
 }
