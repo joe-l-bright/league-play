@@ -1,0 +1,15 @@
+# Intellij
+.idea/
+*.iml
+*.iws
+*.ipr
+*.ctags
+
+Gemfile.lock
+.gradle
+build
+out
+.bck
+classes
+.floo*
+*.patch

@@ -1,0 +1,13 @@
+ext {
+    commonsBeanUtils = 'commons-beanutils:commons-beanutils:1.9.2'
+    commonsIO = 'commons-io:commons-io:2.4'
+    commonsLang = 'org.apache.commons:commons-lang3:3.3.2'
+    h2 = 'com.h2database:h2:1.4.183'
+    mockito = 'org.mockito:mockito-all:1.9.5'
+    reflections = 'org.reflections:reflections:0.9.9'
+    springTest = 'org.springframework:spring-test:4.1.5.RELEASE'
+    testNg = 'org.testng:testng:6.8.8'
+    thymeleaf = 'org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE'
+    thymeleafLayoutDialect = 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.2.7'
+    jacksonMapperAsl = 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+}
