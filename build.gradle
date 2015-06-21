@@ -6,16 +6,6 @@ configurations{
     driver
 }
 
-buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE')
-    }
-}
-
 allprojects {
     group 'coegi'
     version '1.0-SNAPSHOT'

@@ -1,18 +1,30 @@
-apply plugin: 'java'
-apply plugin: 'spring-boot'
-
 apply from: "$rootDir/gradle/versions.gradle"
 
-jar.archiveName = "${jar.baseName}.jar"
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('se.transmode.gradle:gradle-docker:1.2')
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'docker'
+
+jar {
+    baseName = 'league-play'
+    version =  '0.1.0'
+}
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
-bootRepackage {
-    classifier = 'full'
-}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 test {
     useTestNG()
@@ -42,4 +54,17 @@ dependencies {
 run {
     systemProperties = System.properties
     main 'coegi.Application'
+}
+
+task buildDocker(type: Docker, dependsOn: build) {
+//    push = true
+    //local - http://192.168.59.103:8080/
+    applicationName = jar.baseName
+    dockerfile = file('src/main/docker/Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+    }
 }
