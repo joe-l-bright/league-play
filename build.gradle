@@ -34,6 +34,8 @@ jar {
 
 repositories {
     mavenCentral()
+    jcenter()
+    maven { url "http://repo.spring.io/libs-snapshot" }
 }
 
 sourceCompatibility = 1.8
@@ -48,6 +50,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
+
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 
     compile thymeleaf
     compile h2
