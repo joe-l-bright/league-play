@@ -22,7 +22,6 @@ buildscript {
 }
 
 apply plugin: 'idea'
-apply plugin: 'war'
 apply plugin: 'java'
 apply plugin: 'spring-boot'
 apply plugin: 'docker'
@@ -51,8 +50,6 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
 
-    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-
     compile thymeleaf
     compile h2
     compile jacksonMapperAsl
@@ -77,7 +74,7 @@ task buildDocker(type: Docker, dependsOn: build) {
 //    push = true
     //local - http://192.168.59.103:8080/
     applicationName = jar.baseName
-    dockerfile = file('Dockerfile')
+    dockerfile = file('.docker/Dockerfile')
     doFirst {
         copy {
             from jar
